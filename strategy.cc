@@ -93,6 +93,10 @@ void StrategyUnit::run() {
     scanf("%lf%d%d", &price, &cnt, &flag);
     while(price != 0 && cnt != 0){
         printf("get : $%lf * %d %s\n", price, cnt, flag?"normal":"0.8");
+        //可以把这个过程转移到CashContex里面，通过CashContex实现一个工厂模式
+        /*
+         * 将这个选择的过程封装起来，消除条件语句
+         * */
         switch (flag){
             case 0:
                 cc = new CashContext(new CashNormal());
@@ -109,6 +113,12 @@ void StrategyUnit::run() {
     }
     printf("total : $%lf\n", total);
 }
+
+/*
+ * 总结：策略模式定义了一些列的算法（CashNormal、CashRebate），本质上这些算法的工作是相同的（都是打折），只是实现不同（打折方式不同）
+ * 每种算法的调用方式一样，减少了每个算法实现与算法调用之间的耦合
+ * 使用场景：《封装变化》，需要在不同的时间使用不同的规则
+ * */
 
 
 

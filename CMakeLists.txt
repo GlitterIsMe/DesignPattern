@@ -7,6 +7,6 @@ set(SOURCE_FILES
         main.cpp
         simple_factory.cc
         simple_factory.h
-        unit.h strategy.h strategy.cc)
+        unit.h strategy.h strategy.cc single_duty.h)
 
 add_executable(DesignPattern_master ${SOURCE_FILES})
